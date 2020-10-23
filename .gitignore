@@ -6,7 +6,11 @@ __pycache__/
 # C extensions
 *.so
 
+<<<<<<< HEAD
 # DB Keys
+=======
+# Database credentials
+>>>>>>> 8eda4eed5e59337d4eef8538e275bcc0044b9e4d
 db_keys.py
 
 # Distribution / packaging
