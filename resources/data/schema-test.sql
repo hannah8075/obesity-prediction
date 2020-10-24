@@ -34,20 +34,23 @@ CREATE TABLE height (
 	meters float
 );
 
+DROP VIEW height_view
 
+CREATE TABLE height_form (
+	id serial PRIMARY KEY,
+	height_label varchar(30),
+	meters float
+)
 
-CREATE VIEW height_view AS
+*/
+INSERT INTO height_form (height_label, meters)
 SELECT 
 	feet || 'ft' || ' ' || inches || 'in' AS height_label,
 	meters
 FROM height;
-*/
-
-SELECT * FROM height_view
 
 
-
-
+select * from height_form
 
 
 

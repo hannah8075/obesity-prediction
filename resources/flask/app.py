@@ -23,6 +23,7 @@ Base.prepare(engine, reflect=True)
 
 # Save references to each table
 obesity_data = Base.classes.obesity
+height_data = Base.classes.height_form
 
 # print(obesity_data)
 
@@ -32,12 +33,24 @@ obesity_data = Base.classes.obesity
 app = Flask(__name__)
 
 
+# Get Height Data first
+session = Session(engine)
+heightDataMeters = session.query(
+    height_data.height_label,
+    height_data.meters
+).all()
+session.close
+height_data_meters_df = pd.DataFrame(heightDataMeters)
+print(height_data_meters_df['height_label'])
+
+
 @app.route("/")
 def welcome():
     """ List all available api routes """
     return(
         f'Available Routes:</br>'
         f'/api/v1.0/testdata</br>'
+        f'/api/v1.0/heightdata</br>'
     )
 
 
@@ -54,6 +67,21 @@ def returnAll():
     ).all()
     session.close
     return(jsonify(allData))
+
+
+@app.route("/api/v1.0/heightdata")
+def returnHeights():
+    """ Returns height data for form. """
+    # session = Session(engine)
+    # heightData = session.query(
+    #     height_data.height_label
+    # ).all()
+    # heightDataMeters = session.query(
+    #     height_data.height_label,
+    #     height_data.meters
+    # ).all()
+    # session.close
+    return(jsonify(heightDataMeters))
 
 
 if __name__ == '__main__':
