@@ -3,6 +3,7 @@
 DROP TABLE obesity;
 
 CREATE TABLE obesity (
+	ID SERIAL PRIMARY KEY,
 	gender	varchar(10),
 	age	float,
 	height	float,
