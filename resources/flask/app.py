@@ -2,6 +2,7 @@
 # Dependencies
 #####################################
 # SQLAlchemy
+import pandas as pd
 import sqlalchemy
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
@@ -25,13 +26,6 @@ Base.prepare(engine, reflect=True)
 obesity_data = Base.classes.obesity
 height_data = Base.classes.height_form
 
-# print(obesity_data)
-
-#####################################
-# Start Flask
-#####################################
-app = Flask(__name__)
-
 
 # Get Height Data first
 session = Session(engine)
@@ -40,8 +34,14 @@ heightDataMeters = session.query(
     height_data.meters
 ).all()
 session.close
+# convert to dataframe
 height_data_meters_df = pd.DataFrame(heightDataMeters)
-print(height_data_meters_df['height_label'])
+# print(height_data_meters_df['height_label'])
+
+#####################################
+# Start Flask
+#####################################
+app = Flask(__name__)
 
 
 @app.route("/")
@@ -72,16 +72,7 @@ def returnAll():
 @app.route("/api/v1.0/heightdata")
 def returnHeights():
     """ Returns height data for form. """
-    # session = Session(engine)
-    # heightData = session.query(
-    #     height_data.height_label
-    # ).all()
-    # heightDataMeters = session.query(
-    #     height_data.height_label,
-    #     height_data.meters
-    # ).all()
-    # session.close
-    return(jsonify(heightDataMeters))
+    return(jsonify(height_data_meters_df['height_label'].values.tolist()))
 
 
 if __name__ == '__main__':
