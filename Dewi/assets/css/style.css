@@ -531,6 +531,7 @@ section {
 
 .section-bg {
   background-color: #f0f4f8;
+  /* justify-content: center; */
 }
 
 .section-title {
@@ -964,7 +965,7 @@ section {
 }
 
 .services .icon-box h4 {
-  margin-left: 70px;
+  margin-left: 30px;
   font-weight: 700;
   margin-bottom: 15px;
   font-size: 18px;
