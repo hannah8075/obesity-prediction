@@ -8,7 +8,8 @@ from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
 from sqlalchemy import create_engine, func, inspect
 # Flask
-from flask import Flask, jsonify
+from flask import Flask, jsonify, render_template
+from flask_cors import CORS, cross_origin
 # DB credentials for Postgres
 from db_keys import db_uri
 #####################################
@@ -42,11 +43,13 @@ height_data_meters_df = pd.DataFrame(heightDataMeters)
 # Start Flask
 #####################################
 app = Flask(__name__)
+CORS(app)
 
 
 @app.route("/")
 def welcome():
     """ List all available api routes """
+    # return render_template("../../dewi/index.html")
     return(
         f'Available Routes:</br>'
         f'/api/v1.0/testdata</br>'
@@ -69,7 +72,7 @@ def returnAll():
     return(jsonify(allData))
 
 
-@app.route("/api/v1.0/heightdata")
+@app.route("/api/v1.0/heightdata", methods=['GET'])
 def returnHeights():
     """ Returns height data for form. """
     return(jsonify(height_data_meters_df['height_label'].values.tolist()))
