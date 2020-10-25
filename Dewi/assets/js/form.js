@@ -1,3 +1,5 @@
+
+
 var heights = [];
 
 function fetchHeightList() {
@@ -19,4 +21,18 @@ function fetchHeightList() {
 }
     
 fetchHeightList();
-console.log(heights)
+
+// this output works
+console.log(heights);
+
+// no output from here
+heights.forEach((height) => {
+    console.log(height)
+})
+
+var heightSelect = d3.select("#height-select");
+// console.log(heightSelect);
+heights.forEach((height) => {
+    var newHeight = heightSelect.append("option");
+    newHeight.text(height)
+});
