@@ -532,64 +532,126 @@
               <form>
                 <div class="form-row">
                   <div class="col">
-                    <!-- <input type="text" class="form-control" placeholder="Gender"> -->
-                    <label for="">Gender</label>
-                    <select name="gender-select" id="gender">
-                      <option value="">Female</option>
-                      <option value="">Male</option>
-                    </select>
+                    <label for="">Choose Sex</label>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="sex" id="exampleRadios1" value="option1">
+                      <label class="form-check-label" for="exampleRadios1">
+                        Female
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="sex" id="exampleRadios2" value="option2">
+                      <label class="form-check-label" for="exampleRadios2">
+                        Male
+                      </label>
+                    </div>
                   </div>
                   <div class="col">
-                    <input type="text" class="form-control" placeholder="Age">
+                    <label for="">Age (years)</label>
+                    <input type="text" class="form-control" placeholder="">
                   </div>
                   <div class="col">
-                    <input type="text" class="form-control" placeholder="Height">
+                    <label for="">Height</label>
+                    <input type="text" class="form-control" placeholder="">
                   </div>
                   <div class="col">
-                    <input type="text" class="form-control" placeholder="Weight">
+                    <label for="">Weight (lbs)</label>
+                    <input type="text" class="form-control" placeholder="Add Options Here">
                   </div>
                 </div><hr>
                 <div class="form-row">
                   <div class="col">
                     <!-- <input type="text" class="form-control" placeholder="Overweight Family History"> -->
                     <label for="">Overweight Family History</label>
-                    <select name="history-select" id="history">
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="familyHistory" id="exampleRadios1" value="option1">
+                      <label class="form-check-label" for="exampleRadios1">
+                        Yes
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="familyHistory" id="exampleRadios2" value="option2">
+                      <label class="form-check-label" for="exampleRadios2">
+                        No
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <label for="">Main Meals per Day</label>
+                    <input type="text" class="form-control" placeholder="">
+                  </div>
+                  <div class="col">
+                    <!-- <input type="text" class="form-control" placeholder="Food Between Meals"> -->
+                    <label for="">Food Between Meals</label>
+                    <select name="food-between-meals" id="between-meals">
                       <option value="">No</option>
-                      <option value="">Yes</option>
+                      <option value="">Sometimes</option>
+                      <option value="">Always</option>
+                      <option value="">Frequently</option>
                     </select>
                   </div>
                   <div class="col">
-                    <input type="text" class="form-control" placeholder="Main Meals">
-                  </div>
-                  <div class="col">
-                    <input type="text" class="form-control" placeholder="Food Between Meals">
-                  </div>
-                  <div class="col">
-                    <input type="text" class="form-control" placeholder="Smoke">
-                  </div>
-                </div><hr>
-                <div class="form-row">
-                  <div class="col">
-                    <input type="text" class="form-control" placeholder="Water">
-                  </div>
-                  <div class="col">
-                    <input type="text" class="form-control" placeholder="Monitor Calories">
-                  </div>
-                  <div class="col">
-                    <input type="text" class="form-control" placeholder="Physical Activity">
-                  </div>
-                  <div class="col">
-                    <input type="text" class="form-control" placeholder="Technology Use">
+                    <label for="">Smoke</label>
+                    <!-- <input type="text" class="form-control" placeholder="Smoke"> -->
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="smoker" id="exampleRadios1" value="option1">
+                      <label class="form-check-label" for="exampleRadios1">
+                        Yes
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="smoker" id="exampleRadios2" value="option2">
+                      <label class="form-check-label" for="exampleRadios2">
+                        No
+                      </label>
+                    </div>
                   </div>
                 </div><hr>
                 <div class="form-row">
                   <div class="col">
-                    <input type="text" class="form-control" placeholder="Alcohol">
+                    <label for="">Daily Water Intake</label>
+                    <input type="text" class="form-control" placeholder="">
+                  </div>
+                  <div class="col">
+                    <label for="">Monitor Calories</label>
+                    <!-- <input type="text" class="form-control" placeholder="Monitor Calories"> -->
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="calories" id="exampleRadios1" value="option1">
+                      <label class="form-check-label" for="exampleRadios1">
+                        Yes
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="calories" id="exampleRadios2" value="option2">
+                      <label class="form-check-label" for="exampleRadios2">
+                        No
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <label for="">Physical Activity (Hours per Week)</label>
+                    <input type="text" class="form-control" placeholder="">
+                  </div>
+                  <div class="col">
+                    <label for="">Technlolgy Use (Hours per Week)</label>
+                    <input type="text" class="form-control" placeholder="">
+                  </div>
+                </div><hr>
+                <div class="form-row">
+                  <div class="col">
+                    <label for="">Alcohol Use</label>
+                    <!-- <input type="text" class="form-control" placeholder="Alcohol"> -->
+                    <select name="food-between-meals" id="between-meals">
+                      <option value="">No</option>
+                      <option value="">Sometimes</option>
+                      <option value="">Always</option>
+                      <option value="">Frequently</option>
+                    </select>
                   </div>
                   <div class="col">
                     <!-- <input type="text" class="form-control" placeholder="Transportation"> -->
                     <label for="">Transportation</label>
-                    <select name="history-select" id="history">
+                    <select name="history-select" id="transportation">
                       <option value="">Automobile</option>
                       <option value="">Bike</option>
                       <option value="">Motorbike</option>
