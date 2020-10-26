@@ -33,7 +33,8 @@ session = Session(engine)
 heightDataMeters = session.query(
     height_data.height_label,
     height_data.meters
-).order_by(height_data.meters).all()
+).order_by(height_data.meters
+           ).all()
 session.close
 # convert to dataframe
 height_data_meters_df = pd.DataFrame(heightDataMeters)
