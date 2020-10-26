@@ -1,4 +1,8 @@
 
+// Get D3 objects
+var heightSelect = d3.select("#height-select");
+var sexRadio = d3.select("sex");
+
 // Initialize emtpy array but not sure it's needed
 var heights = [];
 
@@ -22,7 +26,23 @@ function fetchHeightList() {
     })
 
 }
-    
+
+function submitToML(){
+    //sex
+    var ele = document.getElementsByName('sex');
+    for(i = 0; i < ele.length; i++) { 
+        if(ele[i].checked) 
+        console.log(ele[i].value); 
+    } 
+
+    // var sexChosen = sexRadio.property("value");
+    // console.log(`Chosen sex: ${sexChosen}`);
+
+    // height
+    var heightChosen = heightSelect.property("value");
+    console.log(`Chosen height: ${heightChosen}`);
+};
+
 fetchHeightList();
 
 // view data
