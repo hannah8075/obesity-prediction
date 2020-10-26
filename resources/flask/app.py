@@ -16,8 +16,9 @@ from flask_cors import CORS, cross_origin
 # DB credentials for Postgres
 from db_keys import db_uri
 
-# SKLearn
+# ML
 from sklearn.linear_model import LinearRegression
+import pickle
 
 #####################################
 # Dependencies
@@ -46,9 +47,10 @@ session.close
 # convert to dataframe
 height_data_meters_df = pd.DataFrame(heightDataMeters)
 
-# Import model file
-model_file = ''
-model = LinearRegression()
+# Load model file
+model_file = '../../obesity_linear_reg.sav'
+# with open(model_file, 'rb') as file:
+loaded_model = pickle.load(open(model_file, 'rb'))
 
 
 #####################################
@@ -66,6 +68,7 @@ def welcome():
         f'Available Routes:</br>'
         f'/api/v1.0/testdata</br>'
         f'/api/v1.0/heightdata</br>'
+        f'/api/v1.0/heightwithmeters</br>'
     )
 
 
@@ -88,6 +91,12 @@ def returnAll():
 def returnHeights():
     """ Returns height data for form. """
     return(jsonify(height_data_meters_df['height_label'].values.tolist()))
+
+
+@app.route("/api/v1.0/heightwithmeters", methods=['GET'])
+def returnFeetAndMeters():
+    """ Returns hight data in feet/inches and meters. """
+    return(jsonify(height_data_meters_df['height_label', 'meters'].values.tolist()))
 
 
 if __name__ == '__main__':

@@ -10,6 +10,7 @@ var activityInput = d3.select("#phys-activity-input");
 var techUseInput = d3.select("#tech-use-input");
 var alcolholSelect = d3.select("#alcohol");
 var transportSelect = d3.select("#transportation");
+var veggieInput = d3.select("#veggie-input");
 
 // Initialize emtpy array but not sure it's needed
 var heights = [];
@@ -109,6 +110,10 @@ function submitToML(){
     var waterEntered = waterInput.property("value");
     console.log(`Water Intake: ${waterEntered}`)
 
+    // veggies
+    var veggiesEntered = veggieInput.property("value");
+    console.log(`Veggies: ${veggiesEntered}`)
+
     // physical activity
     var activityEntered = activityInput.property("value");
     console.log(`Activity: ${activityEntered}`)
@@ -124,6 +129,13 @@ function submitToML(){
     // transportation
     var transportChoice = transportSelect.property("value");
     console.log(`Transportation: ${transportChoice}`)
+
+    // build parameter list for linear regression model
+    model_data = [];
+    model_data.push(ageEntered, heightChosen, weightEntered, veggiesEntered, mealsEntered, waterEntered
+        , activityEntered, techUseEntered, sexChoice, historyChoice)
+    console.log(`model data: ${model_data}`)
+    
 };
 
 fetchHeightList();
