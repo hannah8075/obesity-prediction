@@ -1,15 +1,25 @@
 #####################################
 # Dependencies
 #####################################
+
 # SQLAlchemy
+import pandas as pd
 import sqlalchemy
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
 from sqlalchemy import create_engine, func, inspect
+
 # Flask
-from flask import Flask, jsonify
+from flask import Flask, jsonify, render_template
+from flask_cors import CORS, cross_origin
+
 # DB credentials for Postgres
 from db_keys import db_uri
+
+# ML
+from sklearn.linear_model import LinearRegression
+import pickle
+
 #####################################
 # Dependencies
 #####################################
@@ -23,21 +33,42 @@ Base.prepare(engine, reflect=True)
 
 # Save references to each table
 obesity_data = Base.classes.obesity
+height_data = Base.classes.height_form
 
-# print(obesity_data)
+
+# Get Height Data first
+session = Session(engine)
+heightDataMeters = session.query(
+    height_data.height_label,
+    height_data.meters
+).order_by(height_data.meters
+           ).all()
+session.close
+# convert to dataframe
+height_data_meters_df = pd.DataFrame(heightDataMeters)
+
+# Load model file
+model_file = '../../obesity_linear_reg.sav'
+# with open(model_file, 'rb') as file:
+loaded_model = pickle.load(open(model_file, 'rb'))
+
 
 #####################################
 # Start Flask
 #####################################
 app = Flask(__name__)
+CORS(app)
 
 
 @app.route("/")
 def welcome():
     """ List all available api routes """
+    # return render_template("../../dewi/index.html")
     return(
         f'Available Routes:</br>'
         f'/api/v1.0/testdata</br>'
+        f'/api/v1.0/heightdata</br>'
+        f'/api/v1.0/heightwithmeters</br>'
     )
 
 
@@ -54,6 +85,18 @@ def returnAll():
     ).all()
     session.close
     return(jsonify(allData))
+
+
+@app.route("/api/v1.0/heightdata", methods=['GET'])
+def returnHeights():
+    """ Returns height data for form. """
+    return(jsonify(height_data_meters_df['height_label'].values.tolist()))
+
+
+@app.route("/api/v1.0/heightwithmeters", methods=['GET'])
+def returnFeetAndMeters():
+    """ Returns hight data in feet/inches and meters. """
+    return(jsonify(height_data_meters_df['height_label', 'meters'].values.tolist()))
 
 
 if __name__ == '__main__':

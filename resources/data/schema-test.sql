@@ -22,8 +22,39 @@ CREATE TABLE obesity (
 	mtrans	varchar(30),
 	nobeyesdad varchar(30)
 );
-*/
 
 ALTER TABLE obesity ADD COLUMN ID SERIAL PRIMARY KEY;
 SELECT * FROM obesity;
+
+
+CREATE TABLE height (
+	id serial PRIMARY KEY,
+	feet int,
+	inches int,
+	meters float
+);
+
+DROP VIEW height_view
+
+CREATE TABLE height_form (
+	id serial PRIMARY KEY,
+	height_label varchar(30),
+	meters float
+)
+
+*/
+INSERT INTO height_form (height_label, meters)
+SELECT 
+	feet || 'ft' || ' ' || inches || 'in' AS height_label,
+	meters
+FROM height;
+
+
+select * from height_form
+
+
+
+
+
+
 
