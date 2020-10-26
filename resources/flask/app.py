@@ -33,10 +33,12 @@ session = Session(engine)
 heightDataMeters = session.query(
     height_data.height_label,
     height_data.meters
-).all()
+).order_by(height_data.meters).all()
 session.close
 # convert to dataframe
 height_data_meters_df = pd.DataFrame(heightDataMeters)
+# height_sorted = height_data_meters_df.sort_values(
+#     height_data_meters_df['meters'])
 # print(height_data_meters_df['height_label'])
 
 #####################################

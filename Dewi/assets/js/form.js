@@ -1,5 +1,5 @@
 
-
+// Initialize emtpy array but not sure it's needed
 var heights = [];
 
 function fetchHeightList() {
@@ -14,6 +14,9 @@ function fetchHeightList() {
             if (!heights.includes(height)) {
                 heights.push(height);
             }
+            var heightSelect = d3.select("#height-select");
+            var newHeight = heightSelect.append("option");
+            newHeight.text(height)
         });
         // console.log(data)
     })
@@ -22,17 +25,8 @@ function fetchHeightList() {
     
 fetchHeightList();
 
-// this output works
+// view data
 console.log(heights);
 
-// no output from here
-heights.forEach((height) => {
-    console.log(height)
-})
 
-var heightSelect = d3.select("#height-select");
-// console.log(heightSelect);
-heights.forEach((height) => {
-    var newHeight = heightSelect.append("option");
-    newHeight.text(height)
-});
+
