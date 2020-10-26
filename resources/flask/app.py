@@ -1,17 +1,24 @@
 #####################################
 # Dependencies
 #####################################
+
 # SQLAlchemy
 import pandas as pd
 import sqlalchemy
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
 from sqlalchemy import create_engine, func, inspect
+
 # Flask
 from flask import Flask, jsonify, render_template
 from flask_cors import CORS, cross_origin
+
 # DB credentials for Postgres
 from db_keys import db_uri
+
+# SKLearn
+from sklearn.linear_model import LinearRegression
+
 #####################################
 # Dependencies
 #####################################
@@ -38,9 +45,11 @@ heightDataMeters = session.query(
 session.close
 # convert to dataframe
 height_data_meters_df = pd.DataFrame(heightDataMeters)
-# height_sorted = height_data_meters_df.sort_values(
-#     height_data_meters_df['meters'])
-# print(height_data_meters_df['height_label'])
+
+# Import model file
+model_file = ''
+model = LinearRegression()
+
 
 #####################################
 # Start Flask
