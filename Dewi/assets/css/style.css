@@ -1695,3 +1695,10 @@ section {
 #footer .credits a {
   transition: 0.3s;
 }
+
+
+#tableauPlaceholder {
+  width: 950px;
+  margin-left: auto ;
+  margin-right: auto ;
+  }

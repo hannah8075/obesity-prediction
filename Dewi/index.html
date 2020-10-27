@@ -56,6 +56,7 @@
           <li><a href="#about">Introduction</a></li>
           <li><a href="#services">Visualizing Data Trends</a></li>
           <li><a href="#portfolio">Machine Learning Model</a></li>
+          <li><a href="#conclusions">Conclusions</a></li>
           <li><a href="#team">Team</a></li>
           <!-- <li class="drop-down"><a href="">Drop Down</a>
             <ul> -->
@@ -122,15 +123,19 @@
           <div class="col-lg-6 pt-3 pt-lg-0 content">
             <h3>Obesity Prediction.</h3>
             <p class="font-italic">
-              This project aims to use machine learning to create a model with obesity risk factors to make a prediction of a person's
-              obesity risk and healthcare costs. Tools used in this model include:
+              Obesity is a common, serious, and costly disease. CDC estimates the prevalence of obesity was 42.4% in 2017~2018. The estimated annual medical cost of obesity in the United States was $147 billion in 2008 US dollars; 
+              the medical cost for people who have obesity was $1,429 higher than those of normal weight. Our machine learning models aim to use attributes such as eating habits (e.g. alcohol consumption, number of main meals) and 
+              physical condition (e.g. physical activity frequency) to predict if someone is obese as well as the potential annual medical costs.
+              Methodologies include: 
               
             </p>
             <ul>
               <li><i class="bx bx-check-double"></i> Regression and Random Forest Machine learning models</li>
-              <li><i class="bx bx-check-double"></i> Flask app.</li>
+              <li><i class="bx bx-check-double"></i> Python/Flask app</li>
+              <li><i class="bx bx-check-double"></i> Bootstrap template </li>
               <li><i class="bx bx-check-double"></i> Tableau Visualizations.</li>
-              <li><i class="bx bx-check-double"></i> Delpoyment in Heroku.</li>
+              <li><i class="bx bx-check-double"></i> HTML/JS </li>
+              <li><i class="bx bx-check-double"></i> Heroku hosted with Postgres Database.</li>
             </ul>
             <p>
               Data sources for the project came from:
@@ -139,6 +144,9 @@
                 <li> <a href="https://www.kaggle.com/mirichoi0218/insurance">Kaggle insurance costs dataset </a></li>
                 <li> <a href="http://www.healthdata.org/us-health/data-download">Healthdata with geographic information </a></li>
               </ul>
+            </p>
+            <p>
+
             </p>
           </div>
 
@@ -374,27 +382,9 @@
           <h2>Visualizations</h2>
           <p>Visualizing trends in health data</p>
         </div>
-        <!-- tableau visulzation 1 -->
-        <!-- <div class='tableauPlaceholder' id='viz1603558056410' style='position: relative'><noscript><a href='#'><img
-                alt=' '
-                src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;ob&#47;obesity_dashboard&#47;LifeExpectancy-Female&#47;1_rss.png'
-                style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'>
-            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
-            <param name='embed_code_version' value='3' />
-            <param name='site_root' value='' />
-            <param name='name' value='obesity_dashboard&#47;LifeExpectancy-Female' />
-            <param name='tabs' value='no' />
-            <param name='toolbar' value='yes' />
-            <param name='static_image'
-              value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;ob&#47;obesity_dashboard&#47;LifeExpectancy-Female&#47;1.png' />
-            <param name='animate_transition' value='yes' />
-            <param name='display_static_image' value='yes' />
-            <param name='display_spinner' value='yes' />
-            <param name='display_overlay' value='yes' />
-            <param name='display_count' value='yes' />
-            <param name='language' value='en' /></object></div>
-        <script
-          type='text/javascript'>                    var divElement = document.getElementById('viz1603558056410'); var vizElement = divElement.getElementsByTagName('object')[0]; vizElement.style.width = '100%'; vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px'; var scriptElement = document.createElement('script'); scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js'; vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script> -->
+        <h3> Life Expectancy - Geomap</h3>
+        <p>uncover the life expectancy if increasing or decreasing throughout the spam of 25 years within the US, 
+          demonstrated geographycally.</p>
         <div class='tableauPlaceholder' id='viz1603560896640' style='position: relative'><noscript><a href='#'><img
                 alt=' '
                 src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;ob&#47;obesity_dashboard&#47;LifeExpectancy-Geo&#47;1_rss.png'
@@ -417,7 +407,8 @@
           type='text/javascript'>                    var divElement = document.getElementById('viz1603560896640'); var vizElement = divElement.getElementsByTagName('object')[0]; if (divElement.offsetWidth > 800) { vizElement.style.width = '1366px'; vizElement.style.height = '795px'; } else if (divElement.offsetWidth > 500) { vizElement.style.width = '1366px'; vizElement.style.height = '795px'; } else { vizElement.style.width = '100%'; vizElement.style.height = '727px'; } var scriptElement = document.createElement('script'); scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js'; vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
         <br>
         <!-- tableau visualiztion 2 -->
-
+        <h3>Life Expectancy by State (Ranking) - Line Chart</h3>
+        <p>understand the ranking of the top and bottom US States in terms of Life Expectancy througout the timelines</p>
         <div class='tableauPlaceholder' id='viz1603558166917' style='position: relative'><noscript><a href='#'><img
                 alt=' '
                 src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;ob&#47;obesity_dashboard&#47;LifeExpectancy&#47;1_rss.png'
@@ -855,6 +846,18 @@
       </div>
     </section><!-- End Portfolio Section -->
     <br>
+    <!-- conclusions section -->
+    <section id="conclusions" class="conclusions">
+      <div class="container" data-aos="zoom-in">
+        <div class="section-title">
+          <h2>Conclusions</h2>
+          <p>Conclusions</p>
+        </div>
+        <p>text here</p>
+
+
+      </div>
+    </section>
     <!-- ======= Team Section ======= -->
     <section id="team" class="team section-bg">
       <div class="container" data-aos="fade-up">
