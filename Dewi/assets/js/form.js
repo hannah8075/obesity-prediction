@@ -18,18 +18,16 @@ var heights = [];
 function fetchHeightList() {
     console.log('Fetching height list...')
     
-    response = fetch('http://127.0.0.1:5000/api/v1.0/heightdata', {
+    response = fetch('http://127.0.0.1:5000/api/v1.0/heightwithmeters', {
         method: 'GET'
     }).then(function (response){
         return response.json()
     }).then((data)=> {
         data.map(function (height) {
-            if (!heights.includes(height)) {
-                heights.push(height);
-            }
+            var heightList = []
             var heightSelect = d3.select("#height-select");
             var newHeight = heightSelect.append("option");
-            newHeight.text(height)
+            newHeight.text(height[0]).attr("value", height[1])
         });
         // console.log(data)
     })
