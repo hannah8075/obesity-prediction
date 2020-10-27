@@ -96,7 +96,13 @@ def returnHeights():
 @app.route("/api/v1.0/heightwithmeters", methods=['GET'])
 def returnFeetAndMeters():
     """ Returns hight data in feet/inches and meters. """
-    return(jsonify(height_data_meters_df['height_label', 'meters'].values.tolist()))
+    session = Session(engine)
+    heightDataMeters = session.query(
+        height_data.height_label,
+        height_data.meters
+    ).order_by(height_data.meters).all()
+    session.close
+    return(jsonify(heightDataMeters))
 
 
 if __name__ == '__main__':

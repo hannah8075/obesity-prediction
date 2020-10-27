@@ -18,18 +18,16 @@ var heights = [];
 function fetchHeightList() {
     console.log('Fetching height list...')
     
-    response = fetch('http://127.0.0.1:5000/api/v1.0/heightdata', {
+    response = fetch('http://127.0.0.1:5000/api/v1.0/heightwithmeters', {
         method: 'GET'
     }).then(function (response){
         return response.json()
     }).then((data)=> {
         data.map(function (height) {
-            if (!heights.includes(height)) {
-                heights.push(height);
-            }
+            // var heightList = []
             var heightSelect = d3.select("#height-select");
             var newHeight = heightSelect.append("option");
-            newHeight.text(height)
+            newHeight.text(height[0]).attr("value", height[1])
         });
         // console.log(data)
     })
@@ -78,6 +76,19 @@ function submitToML(){
     // food between meals
     var snacksChosen = snacksSelect.property("value");
     console.log(`Snacks: ${snacksChosen}`)
+    var snackNo = 0;
+    var snackSometimes = 0;
+    var snackFrequently = 0;
+    switch(snacksChosen){
+        case "1":
+            snackNo = 1;
+            break;
+        case "2":
+            snackSometimes = 1;
+            break;
+        default:
+            snackFrequently = 1;
+    }
 
     // high calorie foods
     var ele = document.getElementsByName('highCalorie');
@@ -125,15 +136,48 @@ function submitToML(){
     // alcohol use
     var alcoholChoice = alcolholSelect.property("value");
     console.log(`Alcohol: ${alcoholChoice}`)
+    var alcoNo = 0;
+    var alcoSometimes = 0;
+    var alcoFrequently = 0;
+    switch(alcoholChoice){
+        case "1":
+            alcoNo = 1;
+            break;
+        case "2":
+            alcoSometimes = 1;
+            break;
+        default:
+            alcoFrequently = 1;
+    }
 
     // transportation
     var transportChoice = transportSelect.property("value");
     console.log(`Transportation: ${transportChoice}`)
+    var transBike = 0;
+    var transMotorBike = 0;
+    var transPublicTrans = 0;
+    var transWalking = 0;
+    switch(transportChoice){
+        case "2":
+            transBike = 1;
+            break;
+        case "3":
+            transMotorBike = 1;
+            break;
+        case "4":
+            transPublicTrans = 1
+            break;
+        default:
+            transWalking = 1;
+    }
 
     // build parameter list for linear regression model
     model_data = [];
     model_data.push(ageEntered, heightChosen, weightEntered, veggiesEntered, mealsEntered, waterEntered
-        , activityEntered, techUseEntered, sexChoice, historyChoice)
+        , activityEntered, techUseEntered, sexChoice, historyChoice, highCalChoice
+        , snackFrequently, snackSometimes, snackNo, smokerChoice, monitorCaloriesChoice
+        , alcoFrequently, alcoSometimes, alcoNo
+        , transBike, transMotorBike, transPublicTrans, transWalking)
     console.log(`model data: ${model_data}`)
     
 };
