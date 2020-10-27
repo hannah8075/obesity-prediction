@@ -11,7 +11,7 @@ from flask import Flask, jsonify
 # DB credentials for Postgres
 # from db_keys import db_uri
 
-db_uri= 'postgres://anlrieipbumhsz:dbb3b94bc9b13cf948efc43a2b2846f676962b21c97cbacdddf536e7679a67a1@ec2-52-71-153-228.compute-1.amazonaws.com:5432/dc2541e2rq88om'
+
 #####################################
 # Dependencies
 #####################################
