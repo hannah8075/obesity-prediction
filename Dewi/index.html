@@ -587,7 +587,7 @@
                     <select name="food-between-meals" id="between-meals">
                       <option value="1">No</option>
                       <option value="2">Sometimes</option>
-                      <!-- <option value="3">Always</option> -->
+                      <option value="3">Always</option>
                       <option value="4">Frequently</option>
                     </select>
                   </div>
@@ -645,8 +645,8 @@
                   </div>
                   <div class="col">
                     <label for="">Vegetable Servings</label>
-                    <select name="veggie-servings" id="veggie-select"></select>
-                    <!-- <input type="text" class="form-control" id="veggie-input" placeholder=""> -->
+                    <!-- <select name="veggie-servings" id="veggie-select"></select> -->
+                    <input type="text" class="form-control" id="veggie-input" placeholder="">
                   </div>
                 </div><hr>
                 <div class="form-row">
@@ -663,14 +663,14 @@
                     <select name="aolcohol-use" id="alcohol">
                       <option value="1">No</option>
                       <option value="2">Sometimes</option>
-                      <!-- <option value="3">Always</option> -->
+                      <option value="3">Always</option>
                       <option value="4">Frequently</option>
                     </select>
                   </div>
                   <div class="col">
                     <label for="">Transportation</label>
                     <select name="transport-use" id="transportation">
-                      <!-- <option value="1">Automobile</option> -->
+                      <option value="1">Automobile</option>
                       <option value="2">Bike</option>
                       <option value="3">Motorbike</option>
                       <option value="4">Public Transportation</option>
@@ -678,6 +678,29 @@
                     </select>
                   </div>
                 </div><hr>
+                <div class="form-row">
+                  <div class="col">
+                    <label for="">Number of Children</label>
+                    <select name="num-children" id="children">
+                      <option value="1">0</option>
+                      <option value="2">1</option>
+                      <option value="3">2</option>
+                      <option value="4">3</option>
+                      <option value="5">4</option>
+                      <option value="5">5+</option>
+                    </select>
+                  </div>
+                  <div class="col">
+                    <label for="">Residing Region</label><br>
+                    <select name="region-reside-in" id="region">
+                      <option value="1">Northwest</option>
+                      <option value="2">Southeast</option>
+                      <option value="3">Southwest</option>
+                      <option value="4">Northeast</option> <!-- this is column that will get dropped -->
+                    </select>
+                  </div>
+                </div>
+                <hr>
                 <button id="call-model" type="button" class="btn btn-default" onClick="submitToML()" style="color: #fff;background-color: #ff4a17">Get Result</button>
                 <label for="ml-result">Your result here</label><hr>
               </form>

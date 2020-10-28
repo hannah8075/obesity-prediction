@@ -79,17 +79,19 @@ function submitToML(){
     var snackNo = 0;
     var snackSometimes = 0;
     var snackFrequently = 0;
-    switch(snacksChosen){
-        case "1":
-            snackNo = 1;
-            break;
-        case "2":
-            snackSometimes = 1;
-            break;
-        default:
-            snackFrequently = 1;
+    if (snacksChosen != 3){
+        switch(snacksChosen){
+            case "1":
+                snackNo = 1;
+                break;
+            case "2":
+                snackSometimes = 1;
+                break;
+            default:
+                snackFrequently = 1;
+        }
     }
-
+    
     // high calorie foods
     var ele = document.getElementsByName('highCalorie');
     for(i = 0; i < ele.length; i++) { 
@@ -139,15 +141,17 @@ function submitToML(){
     var alcoNo = 0;
     var alcoSometimes = 0;
     var alcoFrequently = 0;
-    switch(alcoholChoice){
-        case "1":
-            alcoNo = 1;
-            break;
-        case "2":
-            alcoSometimes = 1;
-            break;
-        default:
-            alcoFrequently = 1;
+    if (alcoholChoice != 3) {
+        switch(alcoholChoice){
+            case "1":
+                alcoNo = 1;
+                break;
+            case "2":
+                alcoSometimes = 1;
+                break;
+            default:
+                alcoFrequently = 1;
+        }
     }
 
     // transportation
@@ -157,19 +161,22 @@ function submitToML(){
     var transMotorBike = 0;
     var transPublicTrans = 0;
     var transWalking = 0;
-    switch(transportChoice){
-        case "2":
-            transBike = 1;
-            break;
-        case "3":
-            transMotorBike = 1;
-            break;
-        case "4":
-            transPublicTrans = 1
-            break;
-        default:
-            transWalking = 1;
+    if (transportChoice != 1){
+        switch(transportChoice){
+            case "2":
+                transBike = 1;
+                break;
+            case "3":
+                transMotorBike = 1;
+                break;
+            case "4":
+                transPublicTrans = 1
+                break;
+            default:
+                transWalking = 1;
+        }
     }
+
 
     // build parameter list for linear regression model
     model_data = [];
