@@ -62,7 +62,7 @@ session.close
 height_data_meters_df = pd.DataFrame(heightDataMeters)
 
 # Load model file
-model_file = '../../obesity_linear_reg.sav'
+model_file = '/models/saved_models/obesity_linear_reg.sav'
 # with open(model_file, 'rb') as file:
 loaded_model = pickle.load(open(model_file, 'rb'))
 
