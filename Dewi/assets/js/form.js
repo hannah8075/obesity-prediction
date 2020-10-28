@@ -11,6 +11,9 @@ var techUseInput = d3.select("#tech-use-input");
 var alcolholSelect = d3.select("#alcohol");
 var transportSelect = d3.select("#transportation");
 var veggieInput = d3.select("#veggie-input");
+var childrenSelect = d3.select("#children");
+var regionSelect = d3.select("#region");
+
 
 // Initialize emtpy array but not sure it's needed
 var heights = [];
@@ -58,7 +61,8 @@ function submitToML(){
 
     // weight
     var weightEntered = weightInput.property("value");
-    console.log(`Weight: ${weightEntered}`);
+    var weightKilos = weightEntered / 2.2;
+    console.log(`Weight: ${weightKilos}`);
 
     // family history
     var ele = document.getElementsByName('familyHistory');
@@ -91,7 +95,7 @@ function submitToML(){
                 snackFrequently = 1;
         }
     }
-    
+
     // high calorie foods
     var ele = document.getElementsByName('highCalorie');
     for(i = 0; i < ele.length; i++) { 
@@ -177,10 +181,18 @@ function submitToML(){
         }
     }
 
+    // children
+    var childrenChoice = childrenSelect.property("value");
+    console.log(`Children: ${childrenChoice}`)
+
+    // region
+    var regionChoice = regionSelect.property("value");
+    console.log(`Region: ${regionChoice}`);
+
 
     // build parameter list for linear regression model
     model_data = [];
-    model_data.push(ageEntered, heightChosen, weightEntered, veggiesEntered, mealsEntered, waterEntered
+    model_data.push(ageEntered, heightChosen, weightKilos, veggiesEntered, mealsEntered, waterEntered
         , activityEntered, techUseEntered, sexChoice, historyChoice, highCalChoice
         , snackFrequently, snackSometimes, snackNo, smokerChoice, monitorCaloriesChoice
         , alcoFrequently, alcoSometimes, alcoNo
