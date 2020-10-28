@@ -1,4 +1,4 @@
-# obesity-prediction
+# Obesity Prediction
 This project uses obesity and medical cost data to create a regression analysis for Machine Learning Models, along with Life Expectancy, Obesity, and Physical Activity details to build visualizations for analysis.
 
 # Machine Learning Models
