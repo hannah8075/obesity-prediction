@@ -23,7 +23,7 @@ import pickle
 
 
 
-from flask_sqlalchemy import SQLAlchemy
+# from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 
@@ -41,7 +41,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 # print(db_uri)
 
 # Set up, Connect and Reflect database
-engine = create_engine(f'{db_uri}')
+engine = create_engine(app.config['SQLALCHEMY_DATABASE_URI'])
 Base = automap_base()
 Base.prepare(engine, reflect=True)
 
