@@ -8,6 +8,7 @@ import sqlalchemy
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
 from sqlalchemy import create_engine, func, inspect
+import os
 
 # Flask
 from flask import Flask, jsonify, render_template
@@ -23,6 +24,9 @@ import pickle
 
 
 from flask_sqlalchemy import SQLAlchemy
+
+app = Flask(__name__)
+
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', '')
 #  or "sqlite:///db.sqlite"
 
@@ -66,7 +70,7 @@ loaded_model = pickle.load(open(model_file, 'rb'))
 #####################################
 # Start Flask
 #####################################
-app = Flask(__name__)
+
 CORS(app)
 
 
