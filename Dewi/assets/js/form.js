@@ -185,21 +185,84 @@ function submitToML(){
     var childrenChoice = childrenSelect.property("value");
     console.log(`Children: ${childrenChoice}`)
 
-    // region
+    //region
     var regionChoice = regionSelect.property("value");
-    console.log(`Region: ${regionChoice}`);
-
+    console.log(`Region: ${regionChoice}`)
+    var northwest = 0;
+    var southeast = 0;
+    var southwest = 0;
+    if (regionChoice != 4){
+        switch(regionChoice){
+            case "1":
+                northwest = 1
+                break;
+            case "2":
+                southeast = 1;
+                break;
+            case "3":
+                southwest = 1;
+                break;
+        }
+    }   
 
     // build parameter list for linear regression model
-    model_data = [];
-    model_data.push(ageEntered, heightChosen, weightKilos, veggiesEntered, mealsEntered, waterEntered
-        , activityEntered, techUseEntered, sexChoice, historyChoice, highCalChoice
-        , snackFrequently, snackSometimes, snackNo, smokerChoice, monitorCaloriesChoice
-        , alcoFrequently, alcoSometimes, alcoNo
-        , transBike, transMotorBike, transPublicTrans, transWalking
-        , childrenChoice, regionChoice)
-    console.log(`model data: ${model_data}`)
+    // model_data = [];
+    // model_data.push(ageEntered, heightChosen, weightKilos, veggiesEntered, mealsEntered, waterEntered
+    //     , activityEntered, techUseEntered, sexChoice, historyChoice, highCalChoice
+    //     , snackFrequently, snackSometimes, snackNo, smokerChoice, monitorCaloriesChoice
+    //     , alcoFrequently, alcoSometimes, alcoNo
+    //     , transBike, transMotorBike, transPublicTrans, transWalking
+    //     , childrenChoice, regionChoice)
+    // console.log(`model data: ${model_data}`)
+
     
+    model_param = {
+        Age : parseInt(ageEntered),
+        Height : parseFloat(heightChosen), 
+        Weight : parseInt(weightKilos), 
+        vegetables : parseInt(veggiesEntered), 
+        main_meals : parseInt(mealsEntered), 
+        water : parseInt(waterEntered), 
+        physical_activity : parseInt(activityEntered),
+        technology_use : parseInt(techUseEntered),
+        Gender_Male : parseInt(sexChoice), 
+        family_history_with_overweight_yes : parseInt(historyChoice), 
+        high_caloric_food_yes : parseInt(highCalChoice),
+        food_between_meals_Frequently : parseInt(snackFrequently), 
+        food_between_meals_Sometimes : parseInt(snackSometimes), 
+        food_between_meals_no : parseInt(snackNo),
+        SMOKE_yes : parseInt(smokerChoice),
+        monitor_calories_yes : parseInt(monitorCaloriesChoice),
+        alcohol_Frequently : parseInt(alcoFrequently), 
+        alcohol_Sometimes : parseInt(alcoSometimes),
+        alcohol_no : parseInt(alcoNo), 
+        transportation_Bike : parseInt(transBike),
+        transportation_Motorbike : parseInt(transMotorBike), 
+        transportation_Public_Transportation : parseInt(transPublicTrans), 
+        transportation_Walking : parseInt(transWalking),
+        children : parseInt(childrenChoice),
+        region_northwest : parseInt(northwest),
+        region_southeast : parseInt(southeast),
+        region_southwest : parseInt(southwest)
+    }
+    console.log(model_param)
+    
+   
+    fetch('http://127.0.0.1:5000/api/v1.0/obesityml', {
+        method: 'POST',
+        body: JSON.stringify(model_param),
+        headers: new Headers({
+            "content-type": "application/json"
+            })
+        }).then(function (res) {
+            return res.json()
+            })
+
+            // .then(function (res2) {
+            //     d3.select('.ml-result')
+            //     .append("p").text("Your results here");
+            // })
+
 };
 
 fetchHeightList();
