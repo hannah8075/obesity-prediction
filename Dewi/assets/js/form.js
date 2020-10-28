@@ -196,7 +196,8 @@ function submitToML(){
         , activityEntered, techUseEntered, sexChoice, historyChoice, highCalChoice
         , snackFrequently, snackSometimes, snackNo, smokerChoice, monitorCaloriesChoice
         , alcoFrequently, alcoSometimes, alcoNo
-        , transBike, transMotorBike, transPublicTrans, transWalking)
+        , transBike, transMotorBike, transPublicTrans, transWalking
+        , childrenChoice, regionChoice)
     console.log(`model data: ${model_data}`)
     
 };
