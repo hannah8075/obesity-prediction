@@ -32,6 +32,9 @@
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+    <!-- D3 -->
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+
   <!-- =======================================================
   * Template Name: Dewi - v2.1.0
   * Template URL: https://bootstrapmade.com/dewi-free-multi-purpose-html-template/
@@ -617,6 +620,161 @@
         <div class="row">
           <div class="col-lg-12 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
             <div class="panel panel-default">
+              <div class="panel-heading"><h4>Where are you on your journey?</h4></div><hr>
+            <div class="panel-body">
+              <form>
+                <div class="form-row">
+                  <div class="col">
+                    <label for="">Choose Sex</label>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="sex" id="exampleRadios1" value="0">
+                      <label class="form-check-label" for="exampleRadios1">
+                        Female
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="sex" id="exampleRadios2" value="1">
+                      <label class="form-check-label" for="exampleRadios2">
+                        Male
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <label for="">Age (years)</label>
+                    <input type="text" class="form-control" id="age-input" placeholder="">
+                  </div>
+                  <div class="col">
+                    <label for="">Height</label>
+                    <select name="select-height" id="height-select"></select>
+                  </div>
+                  <div class="col">
+                    <label for="">Weight (lbs)</label>
+                    <input type="text" class="form-control" id="weight-input" placeholder="">
+                  </div>
+                </div><hr>
+                <div class="form-row">
+                  <div class="col"> 
+                    <label for="">Overweight Family History</label>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="familyHistory" id="exampleRadios1" value="1">
+                      <label class="form-check-label" for="exampleRadios1">
+                        Yes
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="familyHistory" id="exampleRadios2" value="0">
+                      <label class="form-check-label" for="exampleRadios2">
+                        No
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <label for="">Main Meals per Day</label>
+                    <input type="text" class="form-control" id="meal-count" placeholder="">
+                  </div>
+                  <div class="col">
+                    <label for="">Food Between Meals</label>
+                    <select name="food-between-meals" id="between-meals">
+                      <option value="1">No</option>
+                      <option value="2">Sometimes</option>
+                      <!-- <option value="3">Always</option> -->
+                      <option value="4">Frequently</option>
+                    </select>
+                  </div>
+                  <div class="col">
+                    <label for="">High Calorie Foods</label>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="highCalorie" id="exampleRadios1" value="1">
+                      <label class="form-check-label" for="exampleRadios1">
+                        Yes
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="highCalorie" id="exampleRadios2" value="0">
+                      <label class="form-check-label" for="exampleRadios2">
+                        No
+                      </label>
+                    </div>
+                  </div>
+                </div><hr>
+
+                <div class="form-row">
+                  <div class="col">
+                    <label for="">Monitor Calories</label>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="calories" id="exampleRadios1" value="1">
+                      <label class="form-check-label" for="exampleRadios1">
+                        Yes
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="calories" id="exampleRadios2" value="0">
+                      <label class="form-check-label" for="exampleRadios2">
+                        No
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <label for="">Smoke</label>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="smoker" id="exampleRadios1" value="1">
+                      <label class="form-check-label" for="exampleRadios1">
+                        Yes
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="smoker" id="exampleRadios2" value="0">
+                      <label class="form-check-label" for="exampleRadios2">
+                        No
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <label for="">Water Intake (Oz/Day)</label>
+                    <input type="text" class="form-control" id="water-input" placeholder="">
+                  </div>
+                  <div class="col">
+                    <label for="">Vegetable Servings</label>
+                    <select name="veggie-servings" id="veggie-select"></select>
+                    <!-- <input type="text" class="form-control" id="veggie-input" placeholder=""> -->
+                  </div>
+                </div><hr>
+                <div class="form-row">
+                  <div class="col">
+                    <label for="">Phys Activity (Hrs/Week)</label>
+                    <input type="text" class="form-control" id="phys-activity-input" placeholder="">
+                  </div>
+                  <div class="col">
+                    <label for="">Technlolgy Use (Hrs/Week)</label>
+                    <input type="text" class="form-control" id="tech-use-input" placeholder="">
+                  </div>
+                  <div class="col">
+                    <label for="">Alcohol Use</label><br>
+                    <select name="aolcohol-use" id="alcohol">
+                      <option value="1">No</option>
+                      <option value="2">Sometimes</option>
+                      <!-- <option value="3">Always</option> -->
+                      <option value="4">Frequently</option>
+                    </select>
+                  </div>
+                  <div class="col">
+                    <label for="">Transportation</label>
+                    <select name="transport-use" id="transportation">
+                      <!-- <option value="1">Automobile</option> -->
+                      <option value="2">Bike</option>
+                      <option value="3">Motorbike</option>
+                      <option value="4">Public Transportation</option>
+                      <option value="5">Walking</option>
+                    </select>
+                  </div>
+                </div><hr>
+                <button id="call-model" type="button" class="btn btn-default" onClick="submitToML()" style="color: #fff;background-color: #ff4a17">Get Result</button>
+                <label for="ml-result">Your result here</label><hr>
+              </form>
+
+        <!-- <div class="row">
+          <div class="col-lg-12 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+            <div class="panel panel-default">
               <div class="panel-heading">
                 <h4>Where are you on your journey?</h4>
               </div>
@@ -625,8 +783,8 @@
                 <form>
                   <div class="form-row">
                     <div class="col">
-                      <!-- <input type="text" class="form-control" placeholder="Gender"> -->
-                      <label for="">Gender</label>
+                      <input type="text" class="form-control" placeholder="Gender"> -->
+                      <!-- <label for="">Gender</label>
                       <select name="gender-select" id="gender">
                         <option value="">Female</option>
                         <option value="">Male</option>
@@ -682,9 +840,9 @@
                     <div class="col">
                       <input type="text" class="form-control" placeholder="Alcohol">
                     </div>
-                    <div class="col">
+                    <div class="col"> -->
                       <!-- <input type="text" class="form-control" placeholder="Transportation"> -->
-                      <label for="">Transportation</label>
+                      <!-- <label for="">Transportation</label>
                       <select name="history-select" id="history">
                         <option value="">Automobile</option>
                         <option value="">Bike</option>
@@ -695,7 +853,7 @@
                     </div>
                   </div>
                   <hr>
-                </form>
+                </form> --> -->
 
               </div>
             </div>
