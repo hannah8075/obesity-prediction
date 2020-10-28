@@ -20,6 +20,16 @@ from db_keys import db_uri
 from sklearn.linear_model import LinearRegression
 import pickle
 
+
+
+from flask_sqlalchemy import SQLAlchemy
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', '')
+#  or "sqlite:///db.sqlite"
+
+# Remove tracking modifications
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+
 #####################################
 # Dependencies
 #####################################
@@ -62,14 +72,14 @@ CORS(app)
 
 @app.route("/")
 def welcome():
-    """ List all available api routes """
-    # return render_template("../../dewi/index.html")
-    return(
-        f'Available Routes:</br>'
-        f'/api/v1.0/testdata</br>'
-        f'/api/v1.0/heightdata</br>'
-        f'/api/v1.0/heightwithmeters</br>'
-    )
+    # """ List all available api routes """
+    return render_template("index.html")
+    # return(
+    #     f'Available Routes:</br>'
+    #     f'/api/v1.0/testdata</br>'
+    #     f'/api/v1.0/heightdata</br>'
+    #     f'/api/v1.0/heightwithmeters</br>'
+    # )
 
 
 @app.route("/api/v1.0/testdata")
