@@ -14,7 +14,7 @@ from flask import Flask, jsonify, render_template
 from flask_cors import CORS, cross_origin
 
 # DB credentials for Postgres
-from db_keys import db_uri
+# from db_keys import db_uri
 
 # ML
 from sklearn.linear_model import LinearRegression
