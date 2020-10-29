@@ -634,7 +634,8 @@
               <br>
               <br>
               <!-- <label for="ml-result">Your result here</label> -->
-              <h5 class='ml-result'>Your Obesity and Medical Cost Prediction</h5>
+              <h5>Your Obesity and Medical Cost Prediction</h5>
+                <div class='ml-result'></div>
               <hr>
 
               </form>
@@ -659,10 +660,8 @@
         This project uses obesity and medical cost data to create a regression analysis for Machine Learning Models,
         along with Life Expectancy, Obesity, and Physical Activity details to build visualizations for analysis.
         <br>
-        <br>
         <h5>Data Visualizations</h5>
-        <p>
-          Analyses were performed and demonstrated through visualizations about the relationship between Life
+        Analyses were performed and demonstrated through visualizations about the relationship between Life
           Expectancy,
           Obesity, and Physical Activity Levels by gender. In addition, a progression step by year for better
           understanding and comparison between timelines.
@@ -670,12 +669,9 @@
           decreased.
           However, it is important to note that life expectancy in the US has increased since 1985. This can likely be
           attributed to advances in medicine in the same timeframe.
-        </p>
-        <br>
         <br>
         <h5>Machine Learning</h5>
-        <p>The methodology for the machine learning models included:</p>
-        <br>
+        The methodology for the machine learning models included:
         <ul>
           <li>Linear regression and random forest models were used.</li>
           <li>To run the models, categorical predictors were converted to dummy variables, the data was scaled then
@@ -683,6 +679,7 @@
             into test and train sets.</li>
           <li>For the random forest model, the categorical outcome was encoded for the analysis.</li>
         </ul>
+        <br>
         <h5>Model 1: Linear Regression</h5>
         <h6>Obesity</h6>
         <ul>
@@ -696,6 +693,7 @@
         <ul>
           <li>The model had a training score of 0.75.</li>
         </ul>
+        <br>
         <h5>Model 2: Random Forest</h5>
         <h6>Obesity</h6>
         <ul>
