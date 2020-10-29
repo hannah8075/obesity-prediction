@@ -37,8 +37,10 @@ var regionInput = d3.select('#region')
 // }
 
 function submitToML() {
-
-    // validate free form boxes
+     // Prevent the page from refreshing
+     d3.event.preventDefault();
+    
+     // validate free form boxes
 
 
     // sex
