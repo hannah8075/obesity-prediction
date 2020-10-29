@@ -236,6 +236,10 @@ function submitToML() {
     }
     console.log(model_param)
 
+    d3.select('.ml-result')
+        .select("div")
+        .html("")
+
 
     fetch('/api/v1.0/obesityml', {
         method: 'POST',
