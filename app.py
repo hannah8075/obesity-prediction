@@ -136,12 +136,14 @@ def run_models():
                             model_param["transportation_Bike"], model_param["transportation_Motorbike"], model_param["transportation_Public_Transportation"], 	
                             model_param["transportation_Walking"]]])	
     int_predict = [int(prediction[0])]	
+    
     # decode label	
     outcome_array = loaded_decoder.inverse_transform(int_predict)	
     obesity_status = outcome_array[0]	
     obesity_status_clean = obesity_status.replace("_"," ")	
     print(obesity_status_clean)	
     print(f'Our prediction for your health status: {obesity_status_clean}')	
+    
     # load the model for medical cost	
     loaded_model = pickle.load(open('models/saved_models/insurance_random_forest.sav', 'rb'))	
     bmi = weight/model_param["Height"]**2	

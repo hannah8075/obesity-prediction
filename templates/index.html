@@ -49,13 +49,13 @@
   <header id="header" class="fixed-top ">
     <div class="container-fluid d-flex align-items-center justify-content-between">
 
-      h1 class="logo"><a href="index.html"></a></h1>
+      <!-- h1 class="logo"><a href="index.html"></a></h1> -->
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo"><img src="static/img/logo.png" alt="" class="img-fluid"></a>-->
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li class="active"><a href="index.html">Home</a></li>
+          <li class="active"><a href="/">Home</a></li>
           <li><a href="#about">Introduction</a></li>
           <li><a href="#services">Visualizing Data Trends</a></li>
           <li><a href="#portfolio">Machine Learning Model</a></li>
@@ -97,9 +97,10 @@
           data-autoplay="true"> Watch Video <i class="icofont-play-alt-2"></i></a>
       </div>
     </div>
-  </section><!-- End Hero -->
+  </section>-->
+  <!-- End Hero -->
 
-    <!-- <main id="main"> --> -->
+    <!-- <main id="main"> --> 
 
     <!-- ======= About Section ======= -->
     <section id="about" class="about">
@@ -139,9 +140,9 @@
               <li><i class="bx bx-check-double"></i> Regression and Random Forest Machine learning models</li>
               <li><i class="bx bx-check-double"></i> Python/Flask app</li>
               <li><i class="bx bx-check-double"></i> Bootstrap template </li>
-              <li><i class="bx bx-check-double"></i> Tableau Visualizations.</li>
+              <li><i class="bx bx-check-double"></i> Tableau Visualizations</li>
               <li><i class="bx bx-check-double"></i> HTML/JS </li>
-              <li><i class="bx bx-check-double"></i> Heroku hosted with Postgres Database.</li>
+              <li><i class="bx bx-check-double"></i> Heroku hosted with Postgres Database</li>
             </ul>
             <p>
               Data sources for the project came from:
@@ -189,8 +190,7 @@
           <p>Visualizing trends in health data</p>
         </div>
         <h3> Life Expectancy - Geomap</h3>
-        <p>uncover the life expectancy if increasing or decreasing throughout the spam of 25 years within the US,
-          demonstrated geographycally.</p>
+        <p> For most states, life expectancy has increased in the past 25 years. The Southeast region has the lowest life expectancy. </p>
         <div class='tableauPlaceholder' id='viz1603560896640' style='position: relative'><noscript><a href='#'><img
                 alt=' '
                 src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;ob&#47;obesity_dashboard&#47;LifeExpectancy-Geo&#47;1_rss.png'
@@ -215,7 +215,7 @@
         <br>
         <!-- tableau visualiztion 2 -->
         <h3>Life Expectancy by State (Ranking) - Bar Chart</h3>
-        <p>understand the ranking of the top and bottom US States in terms of Life Expectancy througout the timelines
+        <p>Females have higher life expectancy than males. Currently the state with the highest life expectancy is California. 
         </p>
         <div class='tableauPlaceholder' id='viz1603558166917' style='position: relative'><noscript><a href='#'><img
                 alt=' '
@@ -241,8 +241,7 @@
         <br>
         <br>
         <h3>Activity vs. Obesity - Scatter Plot</h3>
-        <p>analysis of the correlation between obesity and level of physical activity when compared to National Level
-          and Target percentages.
+        <p> Prevalence of obesity has increased overtime. The U.S. is moving farther away from it's national target of 38.6%. Women have higher prevalence of obesity than men and tend to be less active.
         </p>
         <!-- tableau visulation 3-->
         <div class='tableauPlaceholder' id='viz1603558341790' style='position: relative'><noscript><a href='#'><img
@@ -270,7 +269,7 @@
         <br>
         <!-- tableau visualization 4 -->
         <h3>Activity vs. Obesity Trend - Line Chart</h3>
-        <p>relationship of physical activity levels against obesity per State.</p>
+        <p>There's a negative correlation between obesity prevalence and percentage of adults with sufficient exercise.</p>
         <div class='tableauPlaceholder' id='viz1603560733639' style='position: relative'><noscript><a href='#'><img
                 alt=' '
                 src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;ob&#47;obesity_dashboard&#47;Activityvs_ObesityTrend&#47;1_rss.png'
@@ -381,7 +380,8 @@
           <div class="col-lg-12 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
             <div class="panel panel-default">
               <div class="panel-heading">
-                <h4>Fill out this survey to predict your obesity status and potential medical costs.</h4>
+                <h4>Fill out this survey to predict your obesity status and potential medical costs. All fields are required.</h4>
+                <h5> Disclaimer: This model is prelimiary and requires further tuning.</h5>
               </div>
               <hr>
               <div class="panel-body">
@@ -657,26 +657,26 @@
         </div>
         <p>
         <h5>Obesity prediction</h5>
-        This project uses obesity and medical cost data to create a regression analysis for Machine Learning Models,
-        along with Life Expectancy, Obesity, and Physical Activity details to build visualizations for analysis.
+        <p>This project uses obesity and medical cost data to create a regression analysis for Machine Learning Models,
+          along with Life Expectancy, Obesity, and Physical Activity details to build visualizations for analysis.</p>
         <br>
         <h5>Data Visualizations</h5>
-        Analyses were performed and demonstrated through visualizations about the relationship between Life
+        <p>Analyses were performed and demonstrated through visualizations about the relationship between Life
           Expectancy,
           Obesity, and Physical Activity Levels by gender. In addition, a progression step by year for better
           understanding and comparison between timelines.
           The visualizations show that obesity rates in the US have also increased while physical activity has
           decreased.
           However, it is important to note that life expectancy in the US has increased since 1985. This can likely be
-          attributed to advances in medicine in the same timeframe.
+          attributed to advances in medicine in the same timeframe.</p>
+        <br>
         <br>
         <h5>Machine Learning</h5>
-        The methodology for the machine learning models included:
+        <p>The methodology for the machine learning models included:</p>
         <ul>
           <li>Linear regression and random forest models were used.</li>
           <li>To run the models, categorical predictors were converted to dummy variables, the data was scaled then
-            split
-            into test and train sets.</li>
+            split into test and train sets.</li>
           <li>For the random forest model, the categorical outcome was encoded for the analysis.</li>
         </ul>
         <br>
