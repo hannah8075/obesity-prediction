@@ -37,7 +37,7 @@ http://www.healthdata.org/us-health/data-download
 Analysis are performed and demonstrated through visualizations about the relationship between Life Expectancy, Obesity, and Physical Activity Levels by gender. 
 In addition, a progression walk through by year for better understanding and comparison between timelines. 
 ### Life Expectancy - Geomap
-- uncover the life expectancy if increasing or decreasing throughout the spam of 25 years within the US, demonstrated geographycally.
+- uncover the life expectancy if increasing or decreasing throughout the span of 25 years within the US, demonstrated geographycally.
 ### Life Expectancy by State (Ranking) - Line Chart
 - understand the ranking of the top and bottom US States in terms of Life Expectancy througout the timelines.
 ### Activity vs. Obesity Trend - Bar Chart
@@ -46,7 +46,7 @@ In addition, a progression walk through by year for better understanding and com
 - analysis of the correlation between obesity and level of physical activity when compared to National Level and Target percentages.
 
 # Application and Technology
-1. Heroku hosted with Postgres Database
+1. Heroku hosted application
 2. Bootstrap template (https://bootstrapmade.com/)
 3. Jupyter Notebook
 4. Python/Flask
