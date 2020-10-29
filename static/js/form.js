@@ -11,18 +11,20 @@ var techUseInput = d3.select("#tech-use-input");
 var alcolholSelect = d3.select("#alcohol");
 var transportSelect = d3.select("#transportation");
 var veggieInput = d3.select("#veggie-input");
+var childrenInput = d3.select('#children')
+var regionInput = d3.select('#region')
 
 // Initialize emtpy array but not sure it's needed
 var heights = [];
 
 function fetchHeightList() {
     console.log('Fetching height list...')
-    
+
     response = fetch('http://127.0.0.1:5000/api/v1.0/heightwithmeters', {
         method: 'GET'
-    }).then(function (response){
+    }).then(function (response) {
         return response.json()
-    }).then((data)=> {
+    }).then((data) => {
         data.map(function (height) {
             // var heightList = []
             var heightSelect = d3.select("#height-select");
@@ -34,19 +36,19 @@ function fetchHeightList() {
 
 }
 
-function submitToML(){
+function submitToML() {
 
     // validate free form boxes
 
 
     // sex
     var ele = document.getElementsByName('sex');
-    for(i = 0; i < ele.length; i++) { 
-        if(ele[i].checked) {
-        var sexChoice = ele[i].value;
-        console.log(`Chosen sex: ${sexChoice}`);
-        } 
-    } 
+    for (i = 0; i < ele.length; i++) {
+        if (ele[i].checked) {
+            var sexChoice = ele[i].value;
+            console.log(`Chosen sex: ${sexChoice}`);
+        }
+    }
 
     // age
     var ageEntered = ageInput.property("value");
@@ -62,60 +64,61 @@ function submitToML(){
 
     // family history
     var ele = document.getElementsByName('familyHistory');
-    for(i = 0; i < ele.length; i++) { 
-        if(ele[i].checked){ 
-        var historyChoice = ele[i].value;
-        console.log(`Family History: ${historyChoice}`);
-        } 
-    } 
+    for (i = 0; i < ele.length; i++) {
+        if (ele[i].checked) {
+            var historyChoice = ele[i].value;
+            console.log(`Family History: ${historyChoice}`);
+        }
+    }
 
     // main meals per day
     var mealsEntered = mealsInput.property("value");
     console.log(`Main Meals: ${mealsEntered}`);
 
-    // food between meals
+    // food between meals	
     var snacksChosen = snacksSelect.property("value");
     console.log(`Snacks: ${snacksChosen}`)
     var snackNo = 0;
     var snackSometimes = 0;
     var snackFrequently = 0;
-    switch(snacksChosen){
+    switch (snacksChosen) {
         case "1":
             snackNo = 1;
             break;
         case "2":
             snackSometimes = 1;
             break;
-        default:
+        case "4":
             snackFrequently = 1;
+            break;
     }
 
     // high calorie foods
     var ele = document.getElementsByName('highCalorie');
-    for(i = 0; i < ele.length; i++) { 
-        if(ele[i].checked){ 
-        var highCalChoice = ele[i].value;
-        console.log(`High Calorie Foods: ${highCalChoice}`);
-        } 
-    } 
+    for (i = 0; i < ele.length; i++) {
+        if (ele[i].checked) {
+            var highCalChoice = ele[i].value;
+            console.log(`High Calorie Foods: ${highCalChoice}`);
+        }
+    }
 
     // monitor calories
     var ele = document.getElementsByName('calories');
-    for(i = 0; i < ele.length; i++) { 
-        if(ele[i].checked){ 
-        var monitorCaloriesChoice = ele[i].value;
-        console.log(`Monitor Calories: ${monitorCaloriesChoice}`);
-        } 
-    } 
+    for (i = 0; i < ele.length; i++) {
+        if (ele[i].checked) {
+            var monitorCaloriesChoice = ele[i].value;
+            console.log(`Monitor Calories: ${monitorCaloriesChoice}`);
+        }
+    }
 
     // smoke
     var ele = document.getElementsByName('smoker');
-    for(i = 0; i < ele.length; i++) { 
-        if(ele[i].checked) {
-        var smokerChoice = ele[i].value;
-        console.log(`Smoker: ${smokerChoice}`);
-        } 
-    } 
+    for (i = 0; i < ele.length; i++) {
+        if (ele[i].checked) {
+            var smokerChoice = ele[i].value;
+            console.log(`Smoker: ${smokerChoice}`);
+        }
+    }
 
     // water intake
     var waterEntered = waterInput.property("value");
@@ -133,31 +136,32 @@ function submitToML(){
     var techUseEntered = techUseInput.property("value");
     console.log(`Tech Use: ${techUseEntered}`)
 
-    // alcohol use
+    // alcohol use	
     var alcoholChoice = alcolholSelect.property("value");
     console.log(`Alcohol: ${alcoholChoice}`)
     var alcoNo = 0;
     var alcoSometimes = 0;
     var alcoFrequently = 0;
-    switch(alcoholChoice){
+    switch (alcoholChoice) {
         case "1":
             alcoNo = 1;
             break;
         case "2":
             alcoSometimes = 1;
             break;
-        default:
+        case "4":
             alcoFrequently = 1;
     }
 
-    // transportation
+
+    // transportation	
     var transportChoice = transportSelect.property("value");
     console.log(`Transportation: ${transportChoice}`)
     var transBike = 0;
     var transMotorBike = 0;
     var transPublicTrans = 0;
     var transWalking = 0;
-    switch(transportChoice){
+    switch (transportChoice) {
         case "2":
             transBike = 1;
             break;
@@ -165,27 +169,92 @@ function submitToML(){
             transMotorBike = 1;
             break;
         case "4":
-            transPublicTrans = 1
+            transPublicTrans = 1;
             break;
-        default:
+        case "5":
             transWalking = 1;
+            break;
     }
 
-    // build parameter list for linear regression model
-    model_data = [];
-    model_data.push(ageEntered, heightChosen, weightEntered, veggiesEntered, mealsEntered, waterEntered
-        , activityEntered, techUseEntered, sexChoice, historyChoice, highCalChoice
-        , snackFrequently, snackSometimes, snackNo, smokerChoice, monitorCaloriesChoice
-        , alcoFrequently, alcoSometimes, alcoNo
-        , transBike, transMotorBike, transPublicTrans, transWalking)
-    console.log(`model data: ${model_data}`)
-    
+    //children	
+    var childrenChoice = childrenInput.property("value");
+    console.log(`Children: ${childrenChoice}`)
+
+    //region	
+    var regionChoice = regionInput.property("value");
+    console.log(`Region: ${regionChoice}`)
+    var northwest = 0;
+    var southeast = 0;
+    var southwest = 0;
+    switch (regionChoice) {
+        case "1":
+            northwest = 1
+            break;
+        case "2":
+            southeast = 1;
+            break;
+        case "3":
+            southwest = 1;
+            break;
+    }
+    // build parameter list for random forest	
+    // model_data = [];	
+    // model_data.push(ageEntered, heightChosen, weightEntered, veggiesEntered, mealsEntered, waterEntered	
+    //     , activityEntered, techUseEntered, sexChoice, historyChoice, highCalChoice	
+    //     , snackFrequently, snackSometimes, snackNo, smokerChoice, monitorCaloriesChoice	
+    //     , alcoFrequently, alcoSometimes, alcoNo	
+    //     , transBike, transMotorBike, transPublicTrans, transWalking)	
+    // console.log(`model data: ${model_data}`)	
+    model_param = {
+        Age: parseInt(ageEntered),
+        Height: parseInt(heightChosen),
+        Weight: parseInt(weightEntered),
+        vegetables: parseInt(veggiesEntered),
+        main_meals: parseInt(mealsEntered),
+        water: parseInt(waterEntered),
+        physical_activity: parseInt(activityEntered),
+        technology_use: parseInt(techUseEntered),
+        Gender_Male: parseInt(sexChoice),
+        family_history_with_overweight_yes: parseInt(historyChoice),
+        high_caloric_food_yes: parseInt(highCalChoice),
+        food_between_meals_Frequently: parseInt(snackFrequently),
+        food_between_meals_Sometimes: parseInt(snackSometimes),
+        food_between_meals_no: parseInt(snackNo),
+        SMOKE_yes: parseInt(smokerChoice),
+        monitor_calories_yes: parseInt(monitorCaloriesChoice),
+        alcohol_Frequently: parseInt(alcoFrequently),
+        alcohol_Sometimes: parseInt(alcoSometimes),
+        alcohol_no: parseInt(alcoNo),
+        transportation_Bike: parseInt(transBike),
+        transportation_Motorbike: parseInt(transMotorBike),
+        transportation_Public_Transportation: parseInt(transPublicTrans),
+        transportation_Walking: parseInt(transWalking),
+        children: parseInt(childrenChoice),
+        region_northwest: parseInt(northwest),
+        region_southeast: parseInt(southeast),
+        region_southwest: parseInt(southwest)
+    }
+    console.log(model_param)
+
+
+    fetch('http://127.0.0.1:5000/api/v1.0/obesityml', {
+        method: 'POST',
+        body: JSON.stringify(model_param),
+        headers: new Headers({
+            "content-type": "application/json"
+        })
+    }).then(function (res) {
+        return res.json()
+    })
+        .then(function (res2) {
+            d3.select('.ml-result')
+                .append("div")
+                .attr("class", "alert alert-success")
+                .attr("role", "alert")
+                .text(res2);
+        })
 };
-
 fetchHeightList();
-
 // view data
-console.log(heights);
-
-
+// console.log(heights)	
 
