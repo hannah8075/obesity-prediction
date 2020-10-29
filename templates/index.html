@@ -661,35 +661,51 @@
         <br>
         <br>
         <h5>Data Visualizations</h5>
-        Analyses were performed and demonstrated through visualizations about the relationship between Life Expectancy,
-        Obesity, and Physical Activity Levels by gender. In addition, a progression step by year for better
-        understanding and comparison between timelines.
-        The visualizations show that obesity rates in the US have also increased while physical activity has decreased.
-        However, it is important to note that life expectancy in the US has increased since 1985. This can likely be
-        attributed to advances in medicine in the same timeframe.
+        <p>
+          Analyses were performed and demonstrated through visualizations about the relationship between Life
+          Expectancy,
+          Obesity, and Physical Activity Levels by gender. In addition, a progression step by year for better
+          understanding and comparison between timelines.
+          The visualizations show that obesity rates in the US have also increased while physical activity has
+          decreased.
+          However, it is important to note that life expectancy in the US has increased since 1985. This can likely be
+          attributed to advances in medicine in the same timeframe.
+        </p>
         <br>
         <br>
         <h5>Machine Learning</h5>
-        The methodology for the machine learning models included:
+        <p>The methodology for the machine learning models included:</p>
         <br>
-        <ul>Linear regression and random forest models were used.</ul>
-        <ul>To run the models, categorical predictors were converted to dummy variables, the data was scaled then split
-          into test and train sets.
-          For the random forest model, the categorical outcome was encoded for the analysis.</ul>
+        <ul>
+          <li>Linear regression and random forest models were used.</li>
+          <li>To run the models, categorical predictors were converted to dummy variables, the data was scaled then
+            split
+            into test and train sets.</li>
+          <li>For the random forest model, the categorical outcome was encoded for the analysis.</li>
+        </ul>
         <h5>Model 1: Linear Regression</h5>
         <h6>Obesity</h6>
-        <ul>Height and weight variables were removed as predictors because these are used for body mass index (BMI)
-          calculations.
-          The model had a training score of 0.50. When attempting to improve the model by building a simpler model, the
-          training score decreased to 0.40.</ul>
+        <ul>
+          <li>Height and weight variables were removed as predictors because these are used for body mass index (BMI)
+            calculations.</li>
+          <li>The model had a training score of 0.50. When attempting to improve the model by building a simpler model,
+            the
+            training score decreased to 0.40.</li>
+        </ul>
         <h6>Medical Costs</h6>
-        <ul>The model had a training score of 0.75.</ul>
+        <ul>
+          <li>The model had a training score of 0.75.</li>
+        </ul>
         <h5>Model 2: Random Forest</h5>
         <h6>Obesity</h6>
-        <ul>using the training features and labels, the score was 0.99.</ul>
+        <ul>
+          <li>using the training features and labels, the score was 0.99.</li>
+        </ul>
         <h6>Medical Costs</h6>
-        <ul>using the training features and labels, the score was 0.98. Between these two models, random forest
-          performed better than linear regression. The random forest model was used for our web application.</ul>
+        <ul>
+          <li>using the training features and labels, the score was 0.98. Between these two models, random forest
+            performed better than linear regression. The random forest model was used for our web application.</li>
+        </ul>
         </p>
       </div>
     </section><!-- End conclusions Section -->
