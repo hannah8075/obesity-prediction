@@ -15,26 +15,26 @@ var childrenInput = d3.select('#children')
 var regionInput = d3.select('#region')
 
 // Initialize emtpy array but not sure it's needed
-var heights = [];
+// var heights = [];
 
-function fetchHeightList() {
-    console.log('Fetching height list...')
+// function fetchHeightList() {
+//     console.log('Fetching height list...')
 
-    response = fetch('http://127.0.0.1:5000/api/v1.0/heightwithmeters', {
-        method: 'GET'
-    }).then(function (response) {
-        return response.json()
-    }).then((data) => {
-        data.map(function (height) {
-            // var heightList = []
-            var heightSelect = d3.select("#height-select");
-            var newHeight = heightSelect.append("option");
-            newHeight.text(height[0]).attr("value", height[1])
-        });
-        // console.log(data)
-    })
+//     response = fetch('http://127.0.0.1:5000/api/v1.0/heightwithmeters', {
+//         method: 'GET'
+//     }).then(function (response) {
+//         return response.json()
+//     }).then((data) => {
+//         data.map(function (height) {
+//             // var heightList = []
+//             var heightSelect = d3.select("#height-select");
+//             var newHeight = heightSelect.append("option");
+//             newHeight.text(height[0]).attr("value", height[1])
+//         });
+//         // console.log(data)
+//     })
 
-}
+// }
 
 function submitToML() {
 
@@ -254,7 +254,7 @@ function submitToML() {
                 .text(res2);
         })
 };
-fetchHeightList();
+// fetchHeightList();
 // view data
 // console.log(heights)	
 
