@@ -100,22 +100,22 @@ def returnAll():
     return(jsonify(allData))
 
 
-@app.route("/api/v1.0/heightdata", methods=['GET'])
-def returnHeights():
-    """ Returns height data for form. """
-    return(jsonify(height_data_meters_df['height_label'].values.tolist()))
+# @app.route("/api/v1.0/heightdata", methods=['GET'])
+# def returnHeights():
+#     """ Returns height data for form. """
+#     return(jsonify(height_data_meters_df['height_label'].values.tolist()))
 
 
-@app.route("/api/v1.0/heightwithmeters", methods=['GET'])
-def returnFeetAndMeters():
-    """ Returns hight data in feet/inches and meters. """
-    session = Session(engine)
-    heightDataMeters = session.query(
-        height_data.height_label,
-        height_data.meters
-    ).order_by(height_data.meters).all()
-    session.close
-    return(jsonify(heightDataMeters))
+# @app.route("/api/v1.0/heightwithmeters", methods=['GET'])
+# def returnFeetAndMeters():
+#     """ Returns hight data in feet/inches and meters. """
+#     session = Session(engine)
+#     heightDataMeters = session.query(
+#         height_data.height_label,
+#         height_data.meters
+#     ).order_by(height_data.meters).all()
+#     session.close
+#     return(jsonify(heightDataMeters))
 
 @app.route("/api/v1.0/obesityml", methods=['GET', 'POST'])	
 def run_models():	
